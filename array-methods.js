@@ -7,14 +7,12 @@ function outputPlanetsOld(array){
 
 outputPlanetsOld(planets);
 function outputPlanets(planet){
-	document.getElementById("planets").innerHTML += "<div>" +  planet  + "</div>";
+	el.innerHTML += "<div>" +  planet  + "</div>";
 };
 
-// planets.forEach(outputPlanets)
 
 var el = document.getElementById("planets");
 
-// Use the map method to create a new array where the first letter of each planet is capitalized
 
 function capitalizePlanets(caps) {
 	return caps.charAt(0).toUpperCase() + caps.substring(1).toLowerCase();
@@ -24,15 +22,27 @@ function capitalizePlanets(caps) {
 
 // Use the filter method to create a new array that contains planets with the letter 'e'
 
-function filterIt(myPlanets){
-	if(myPlanets.length === "e"){
-		return myPlanets;
-	}
-};
+var ePlanets = planets.filter(function(planet){
+  return planet.indexOf("e") !== -1;
+});
 
-planets.map(capitalizePlanets).forEach(outputPlanets).filter(filterIt);
+console.log(ePlanets)
+
+planets.map(capitalizePlanets).forEach(outputPlanets)
 
 
 // Use the reduce method to create a sentence from the words in the following array
 
 var words = ["The", "early", "bird", "might", "get", "the", "worm", "but", "the", "second", "mouse", "gets", "the", "cheese"];
+
+
+words = words.reduce(function(a,b){
+  return a + " " + b;
+});
+console.log(words)
+
+document.getElementById("words").innerHTML += "<div>" + words + "</div>";
+
+
+
+
